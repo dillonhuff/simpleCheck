@@ -2,7 +2,7 @@
 #include "tree-pass.h"
 #include "function.h"
 
-#include <iostream>
+#include "check-co-call.h"
 
 using namespace std;
 
@@ -11,6 +11,7 @@ int plugin_is_GPL_compatible;
 extern "C"
 unsigned int
 check_co_call_execute() {
+  check_for_co_call_violations(cfun);
   return 0;
 }
 
